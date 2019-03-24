@@ -1,0 +1,31 @@
+//Given an array of one's and zero's convert the equivalent binary value to an integer.
+
+//Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+
+import java.util.List;
+
+public class BinaryArrayToNumber {
+
+    public static int ConvertBinaryArrayToInt(List<Integer> binary) {
+        
+        // Your Code
+        //Method: checking each array from the beggining index, if it equals 1 then we subtract the position of True index value from the length.of array , 
+        //which will equal the position of the value ,count startin from the right.
+        //will become the value of ^nth base of 2 , (2^n = value of the current binary position.) 
+        //adding all True values as the search continues consequentially which will result in the binary value equivalent to an integer
+        
+        int sumValue = 0;
+        for( int i =0; i<binary.size(); i++){
+            if (binary.get(i) == 1){
+                int n = (binary.size()-1)- i;  //nth position the -1 gives correct output for 1st binary value in the end of array.
+                int value = (int) Math.pow( 2, n);
+                sumValue = sumValue + value;
+                 }         
+        }
+           return sumValue;
+        
+    } 
+           
+    
+}
